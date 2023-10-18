@@ -18,6 +18,10 @@ import WPPostData from "./interfaces/WPPostData";
     await page.waitForNavigation();
     await page.waitForTimeout(3000);
 
+    await page.$$eval("button.switch-html", (elements) =>
+      elements.forEach((element) => (element as HTMLButtonElement).click())
+    );
+
     for (const selector of Object.keys(postData)) {
       if (selector === "url") continue;
 
@@ -30,7 +34,9 @@ import WPPostData from "./interfaces/WPPostData";
       );
     }
 
-    await page.click("input[type=submit]#publish");
+    await page.click(
+      "input[type=submit]#publish,.edit-tag-actions input[type=submit]"
+    );
     await page.waitForNavigation({ timeout: 160000 });
     await page.waitForTimeout(3000);
   };
