@@ -11,7 +11,6 @@ function data() {
     columns: true,
     skip_empty_lines: true,
   });
-  console.log(records);
   return records as WPPostData[];
 }
 
