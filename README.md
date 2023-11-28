@@ -1,6 +1,7 @@
 # Automatyzacja WP
 
 Automatyzacja pozwala na ustawianie wartości dowolnych pól w panelu Wordpressa dla wskazanego adresu URL.
+Adres URL może być zarówno URLem do danej podstrony na froncie (jeśli w trybie admina na stronie wyświetlany jest nagłówek worpressa) lub adresem URL do edycji w panelu.
 
 1. Zainstalować zależności wpisując komendę `npm i` będąc w głównym katalogu projektu
 2. Należy utworzyć plik .env zawierający dane logowania do WordPressa na podstawie przykładowego pliku .env.example

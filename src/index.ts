@@ -11,11 +11,14 @@ import WPPostData from "./interfaces/WPPostData";
   await login(page);
 
   const step = async (postData: WPPostData) => {
-    const response = await page.goto(postData.url);
+    const response = await page.goto(postData.url.trim());
     if (response?.status().toString()[0] === "4") return;
 
-    await page.click("#wp-admin-bar-edit");
-    await page.waitForNavigation();
+    if (!new URL(postData.url.trim()).pathname.endsWith(".php")) {
+      await page.click("#wp-admin-bar-edit");
+      await page.waitForNavigation();
+    }
+
     await page.waitForTimeout(3000);
 
     await page.$$eval("button.switch-html", (elements) =>
