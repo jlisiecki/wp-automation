@@ -12,6 +12,7 @@ export default async function login(page: Page) {
   const loginUrl = LOGIN_URL || `${ORIGIN}/wp-login.php`;
 
   await page.goto(loginUrl);
+  await page.waitForTimeout(3000);
   await page.type("#user_login", LOGIN);
   await page.type("#user_pass", PASSWORD);
 

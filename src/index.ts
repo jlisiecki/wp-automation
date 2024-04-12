@@ -51,6 +51,7 @@ import WPPostData from "./interfaces/WPPostData";
         .then(() => (success = true))
         .catch(() => (success = false));
     } while (!success);
+    console.log(`Post ${singlePostData.url} done!`);
   }
   await browser.close();
 })();
